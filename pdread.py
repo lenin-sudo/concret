@@ -59,11 +59,13 @@ def showdata(file, valor1, valor2):
         else:
             crit2[i] = "N"
 
+    # Borro los elementos que tienen cero para que puedan ser graficados
+    mat3 = np.delete(mat2, np.where(mat2 == 0), axis=0)
     # print('crit2:\n', crit2)
+    # print('mat3:\n', mat3)
 
     show_data = show_data.assign(prom_1=mat1, prom_2=mat2, crit_1=crit1, crit_2=crit2)  # agrega nuevas columnas
-    return show_data
-    # TODO dar formato a los numeros. Un entero con dos decimales
+    return show_data  # , mat1, mat3
 
 
 if __name__ == '__main__':
